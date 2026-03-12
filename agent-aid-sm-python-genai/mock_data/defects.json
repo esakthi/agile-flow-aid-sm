@@ -1,0 +1,812 @@
+[
+  {
+    "jiraId": "PROJ-9001",
+    "epicId": "EPIC-001",
+    "title": "Defect for PROJ-1001",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-02-08T22:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9002",
+    "epicId": "EPIC-001",
+    "title": "Defect for PROJ-1012",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-02-13T21:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9003",
+    "epicId": "EPIC-001",
+    "title": "Defect for PROJ-1018",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-02-14T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9004",
+    "epicId": "EPIC-001",
+    "title": "Defect for PROJ-1022",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-02-08T20:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9005",
+    "epicId": "EPIC-001",
+    "title": "Defect for PROJ-1023",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-02-10T20:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9006",
+    "epicId": "EPIC-001",
+    "title": "Defect for PROJ-1028",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-02-13T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9007",
+    "epicId": "EPIC-001",
+    "title": "Defect for PROJ-1031",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-02-12T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9008",
+    "epicId": "EPIC-001",
+    "title": "Defect for PROJ-1037",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-02-07T18:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9009",
+    "epicId": "EPIC-002",
+    "title": "Defect for PROJ-1055",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-02-21T13:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9010",
+    "epicId": "EPIC-002",
+    "title": "Defect for PROJ-1056",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-02-15T20:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9011",
+    "epicId": "EPIC-002",
+    "title": "Defect for PROJ-1067",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-02-16T14:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9012",
+    "epicId": "EPIC-002",
+    "title": "Defect for PROJ-1071",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-02-18T21:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9013",
+    "epicId": "EPIC-002",
+    "title": "Defect for PROJ-1079",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-02-21T20:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9014",
+    "epicId": "EPIC-002",
+    "title": "Defect for PROJ-1090",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-02-15T21:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9015",
+    "epicId": "EPIC-002",
+    "title": "Defect for PROJ-1094",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-02-19T20:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9016",
+    "epicId": "EPIC-002",
+    "title": "Defect for PROJ-1096",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-02-16T21:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9017",
+    "epicId": "EPIC-002",
+    "title": "Defect for PROJ-1098",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-02-20T21:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9018",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1105",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-02-24T13:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9019",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1110",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-02-26T18:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9020",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1113",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-02-24T17:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9021",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1118",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-02-27T12:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9022",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1123",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-02-26T18:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9023",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1124",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-02-22T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9024",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1125",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-02-21T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9025",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1126",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-02-23T17:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9026",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1128",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-02-25T17:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9027",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1141",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-02-28T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9028",
+    "epicId": "EPIC-003",
+    "title": "Defect for PROJ-1149",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-02-27T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9029",
+    "epicId": "EPIC-004",
+    "title": "Defect for PROJ-1157",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-03-09T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9030",
+    "epicId": "EPIC-004",
+    "title": "Defect for PROJ-1162",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-03-03T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9031",
+    "epicId": "EPIC-004",
+    "title": "Defect for PROJ-1163",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-03-03T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9032",
+    "epicId": "EPIC-004",
+    "title": "Defect for PROJ-1169",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-03-03T12:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9033",
+    "epicId": "EPIC-004",
+    "title": "Defect for PROJ-1178",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-03-08T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9034",
+    "epicId": "EPIC-004",
+    "title": "Defect for PROJ-1182",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-03-02T14:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9035",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1201",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-03-10T12:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9036",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1202",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-03-12T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9037",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1205",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-03-10T13:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9038",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1210",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-03-15T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9039",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1212",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-03-11T13:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9040",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1218",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-03-17T13:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9041",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1220",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-03-17T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9042",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1222",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-03-10T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9043",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1224",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-03-16T12:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9044",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1227",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-03-11T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9045",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1228",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-03-16T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9046",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1231",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-03-14T17:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9047",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1235",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-03-17T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9048",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1237",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-03-10T18:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9049",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1243",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-03-13T13:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9050",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1244",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-03-11T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9051",
+    "epicId": "EPIC-005",
+    "title": "Defect for PROJ-1247",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-03-14T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9052",
+    "epicId": "EPIC-006",
+    "title": "Defect for PROJ-1277",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-03-18T19:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9053",
+    "epicId": "EPIC-006",
+    "title": "Defect for PROJ-1282",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-03-16T22:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9054",
+    "epicId": "EPIC-006",
+    "title": "Defect for PROJ-1284",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-03-19T23:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9055",
+    "epicId": "EPIC-006",
+    "title": "Defect for PROJ-1293",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-03-21T20:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9056",
+    "epicId": "EPIC-007",
+    "title": "Defect for PROJ-1304",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-03-28T13:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9057",
+    "epicId": "EPIC-007",
+    "title": "Defect for PROJ-1311",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-03-28T18:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9058",
+    "epicId": "EPIC-007",
+    "title": "Defect for PROJ-1324",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-03-24T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9059",
+    "epicId": "EPIC-007",
+    "title": "Defect for PROJ-1333",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-03-31T14:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9060",
+    "epicId": "EPIC-007",
+    "title": "Defect for PROJ-1335",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-03-24T13:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9061",
+    "epicId": "EPIC-007",
+    "title": "Defect for PROJ-1337",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-03-28T14:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9062",
+    "epicId": "EPIC-007",
+    "title": "Defect for PROJ-1338",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-03-24T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9063",
+    "epicId": "EPIC-007",
+    "title": "Defect for PROJ-1339",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-03-26T10:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9064",
+    "epicId": "EPIC-008",
+    "title": "Defect for PROJ-1360",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-03-31T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9065",
+    "epicId": "EPIC-008",
+    "title": "Defect for PROJ-1364",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-04-01T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9066",
+    "epicId": "EPIC-008",
+    "title": "Defect for PROJ-1365",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-04-04T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9067",
+    "epicId": "EPIC-008",
+    "title": "Defect for PROJ-1370",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-04-04T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9068",
+    "epicId": "EPIC-008",
+    "title": "Defect for PROJ-1374",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-04-01T12:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9069",
+    "epicId": "EPIC-008",
+    "title": "Defect for PROJ-1376",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-04-07T17:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9070",
+    "epicId": "EPIC-008",
+    "title": "Defect for PROJ-1377",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-04-06T14:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9071",
+    "epicId": "EPIC-008",
+    "title": "Defect for PROJ-1379",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-04-03T10:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9072",
+    "epicId": "EPIC-008",
+    "title": "Defect for PROJ-1384",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV3",
+    "createdAt": "2026-04-03T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9073",
+    "epicId": "EPIC-008",
+    "title": "Defect for PROJ-1390",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-04-03T12:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9074",
+    "epicId": "EPIC-009",
+    "title": "Defect for PROJ-1412",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-04-09T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9075",
+    "epicId": "EPIC-009",
+    "title": "Defect for PROJ-1420",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-04-08T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9076",
+    "epicId": "EPIC-009",
+    "title": "Defect for PROJ-1422",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-04-10T18:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9077",
+    "epicId": "EPIC-009",
+    "title": "Defect for PROJ-1423",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-04-10T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9078",
+    "epicId": "EPIC-009",
+    "title": "Defect for PROJ-1426",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-04-05T19:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9079",
+    "epicId": "EPIC-009",
+    "title": "Defect for PROJ-1430",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-04-06T20:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9080",
+    "epicId": "EPIC-009",
+    "title": "Defect for PROJ-1431",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-04-06T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9081",
+    "epicId": "EPIC-009",
+    "title": "Defect for PROJ-1432",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-04-11T14:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9082",
+    "epicId": "EPIC-009",
+    "title": "Defect for PROJ-1436",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-04-07T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9083",
+    "epicId": "EPIC-010",
+    "title": "Defect for PROJ-1452",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-04-16T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9084",
+    "epicId": "EPIC-010",
+    "title": "Defect for PROJ-1457",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-04-15T15:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9085",
+    "epicId": "EPIC-010",
+    "title": "Defect for PROJ-1458",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV1",
+    "createdAt": "2026-04-15T10:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9086",
+    "epicId": "EPIC-010",
+    "title": "Defect for PROJ-1475",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-04-15T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9087",
+    "epicId": "EPIC-010",
+    "title": "Defect for PROJ-1483",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV4",
+    "createdAt": "2026-04-12T11:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9088",
+    "epicId": "EPIC-010",
+    "title": "Defect for PROJ-1484",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-04-17T16:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9089",
+    "epicId": "EPIC-010",
+    "title": "Defect for PROJ-1487",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV5",
+    "createdAt": "2026-04-18T17:00:00",
+    "status": "Resolved"
+  },
+  {
+    "jiraId": "PROJ-9090",
+    "epicId": "EPIC-010",
+    "title": "Defect for PROJ-1496",
+    "description": "Auto-generated defect from QA",
+    "assignee": "DEV2",
+    "createdAt": "2026-04-17T15:00:00",
+    "status": "Resolved"
+  }
+]

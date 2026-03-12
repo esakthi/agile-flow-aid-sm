@@ -1,0 +1,35 @@
+For complete visibility from Epic down to delivery the detailed, normalized model (the generator output with Epics, Stories, Commits, CICD Builds, Status History and Defects as separate linked entities) is the better choice. It provides the traceability, time series, and event-level detail that Product Owners, Scrum Masters, and Delivery Leads need to make decisions. Side‑by‑side comparison
+
+
+
+| Attribute | Detailed normalized model |
+| :--- | :--- |
+| **Traceability Epic Commit Release** | Full links across tables; each commit and build references JIRA IDs |
+| **Status and timeline** | Rich status_history with timestamps for transitions |
+| **CICD and release visibility** | Per-build records with environment, status, artifacts, timestamps |
+| **Defect and rework tracking** | Separate defect tickets and reopen events captured |
+| **Analytics readiness** | Ready for time-series, funnel, lead time, MTTR, failure rate metrics |
+| **Storage and query cost** | Larger, more records, needs relational or document DB |
+| **Ease of demoing MVP** | More work to seed but enables realistic dashboards |
+| **Developer activity detail** | Commits, PRs, lines changed, branches available |
+| **Ability to show blockers and root cause** | Yes, blockers and notes per epic and build logs |
+| **Suitability for Scrum Master and Delivery Lead** | High — supports sprint health, release readiness, risk heatmaps |
+
+
+Why the detailed model matters for each stakeholder
+	• Product Owner needs to know scope completion, acceptance criteria status, and release readiness. The detailed model shows which stories are merged, which are in UAT, and which are blocked by external issues.
+	• Scrum Master needs flow metrics and impediment signals. status_history and defect reopen events enable cycle time, blocked time, and bottleneck detection.
+	• Delivery Lead needs release-level risk and CI stability. Build records with environment and failure reasons let them decide go/no‑go and plan rollbacks.
+Precomputed compact view for UI
+	• story_view keyed by jira_id with assignee, current_status, last_commit_sha, last_build_status, repositories, blocker_tags
+Key dashboards and KPIs to implement immediately
+	• Epic Health Dashboard: percent stories Done, percent stories On Plan, open blockers, release readiness score.
+	• Sprint Flow: cumulative flow diagram by status, average cycle time, median lead time.
+	• CI Stability: build success rate by environment, failing tests count, mean time to recovery.
+	• Developer Workload: stories assigned, commits, PRs merged, defects assigned.
+	• Risk Heatmap: epics with high defect reopen rate, UAT failures, or external blockers.
+Practical next steps for your hackathon
+	• Use the detailed generator to seed the database so you can compute the KPIs above.
+	• Export a compact combined.json view from the normalized data for the frontend to consume quickly.
+	• Precompute derived fields such as current_status, last_build_status, and delay_days to speed up dashboards.
+	• Surface three critical signals in the MVP UI: blocked epics, UAT failures, and stories reopened after QA.

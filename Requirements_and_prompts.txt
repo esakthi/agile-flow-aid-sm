@@ -1,0 +1,282 @@
+- Product Owner needs to know scope completion, acceptance criteria status, and release readiness. The detailed model shows which stories are merged, which are in UAT, and which are blocked by external issues.
+- Scrum Master needs flow metrics and impediment signals. status_history and defect reopen events enable cycle time, blocked time, and bottleneck detection.
+- Delivery Lead needs release-level risk and CI stability. Build records with environment and failure reasons let them decide go/no‑go and plan rollbacks.
+
+
+a. Build Frontend Dashboards using React UI (backend is python with google gen ai adk (agent development kit)
+
+1.  Product Owner Dashboard Prompt
+
+You are generating a Product Owner dashboard using normalized agile delivery data.
+Data sources: Epics, Stories, Acceptance Criteria, Status History, CICD Deployments, Product Owner Acceptance logs.
+Objectives:
+- Show scope completion (% stories done vs total).
+- Track acceptance criteria status (met vs unmet).
+- Highlight release readiness (stories merged, UAT passed, PROD deployed).
+- Identify blockers (external dependencies, failed builds).
+Enrichments:
+- Summarize epic health in natural language.
+- Detect anomalies (stories delayed > planned end date).
+- Provide trend lines of completion velocity.
+Visualizations:
+- Epic completion bar chart.
+- Acceptance criteria table with status.
+- Release readiness gauge.
+- Blocker list with severity tags.
+Enable drill‑down: Epic → Story → Commits → CICD builds → Acceptance.
+
+2. Scrum Master Dashboard Prompt
+
+You are generating a Scrum Master dashboard using normalized agile delivery data.
+Data sources: Status History, Defects, Commits, CICD Deployments.
+Objectives:
+- Show flow metrics (cycle time, lead time, throughput).
+- Identify impediments (stories reopened, defects linked, blocked statuses).
+- Track bottlenecks (stories stuck in Code Review or QA).
+Enrichments:
+- Summarize impediment signals in natural language.
+- Highlight stories with multiple reopen events.
+- Compute blocked time per story.
+Visualizations:
+- Cumulative flow diagram.
+- Cycle time scatter plot.
+- Bottleneck heatmap (status vs duration).
+- Defect reopen timeline.
+Enable drill‑down: Story → Status transitions → Commits → Defects → QA outcomes.
+
+3. Delivery Lead Dashboard Prompt
+
+You are generating a Delivery Lead dashboard using normalized agile delivery data.
+Data sources: CICD Build Records, Release Versions, Environment Deployments, Defect Logs.
+Objectives:
+- Show release-level risk (failed builds, rollback events).
+- Track CI stability (success rate per environment).
+- Provide go/no-go readiness signals for releases.
+- Highlight environment-specific issues (UAT failures, PROD rollbacks).
+Enrichments:
+- Summarize release risk in natural language.
+- Detect anomalies (failure spikes, unstable builds).
+- Provide trend lines of build success rate.
+Visualizations:
+- Build success/failure timeline.
+- Environment stability dashboard (DEV/UAT/PROD).
+- Release readiness scorecard.
+- Risk heatmap (epic vs environment).
+Enable drill‑down: Release → Builds → Stories → Commits → Defects.
+
+
+4. General menu / submenu options that runs prompts to backend to fetch instant details for most wanted queries of each role, please fine few examples that could be added as one click menu item to fetch details with RAG + Embedding Enhancements + Deep Research. 
+
+Note:  Deep search as checkbox along with below options. 
+
+- Natural language queries: “Show me all epics blocked by UAT failures last sprint.”
+- Summarization: Generate concise health reports per epic.
+- Anomaly detection: Flag unusual delays or defect spikes.
+- Sentiment analysis: Extract tone from developer/QA comments to surface morale signals.
+- Velocity trends: Compute rolling averages of story completion per sprint.
+- Risk signals: Combine defect reopen rate + UAT failure rate + blocker count into a composite risk score.
+
+5.  Interaction Patterns
+- Role‑aware landing pages: Each role sees their tailored dashboard.
+- Drill‑down navigation: Click Epic → see Stories → click Story → see Commits/Builds.
+- Heatmaps: For bottlenecks and risk signals.
+- Timelines: For status history and build events.
+- Scorecards: For readiness and risk.
+- Narrative summaries: AI‑generated text blocks explaining current state.
+
+Note: How to use these prompts
+- In your React UI, send the role‑specific prompt + current normalized data snapshot to your LLM service.
+- The LLM will return enriched metrics, summaries, and visualization specs.
+- Render those specs into charts/tables using your React charting library (e.g., D3, Chart.js, Recharts).
+- Allow natural language queries from the user to be passed directly to the RAG engine with the same role context.
+
+-----------------------------------------------------------------
+
+b. Build backend Gen ai agent using LLM embedding model, vector store, RAG, Gen AI chat model, image search model, voice search and live interaction. 
+
+Should only use below technologies for backend implementation.
+
+--Web & Utils
+FastAPI
+Uvicorn
+python-dotenv
+httpx
+pydantic
+
+--LLM
+google-genai
+SQLAlchemy
+Psycopg
+Pgvector
+
+--parsing
+python-multipart
+aiofiles
+jsonutils
+
+Sample structured response from backend to react ui
+
+{
+  "role": "ProductOwner | ScrumMaster | DeliveryLead",
+  "summary": "Natural language overview of current state",
+  "metrics": {
+    "scope_completion": {
+      "stories_done": 120,
+      "stories_total": 200,
+      "percent_complete": 60
+    },
+    "acceptance_criteria": [
+      {"story_id": "PROJ-1001", "criteria_met": true},
+      {"story_id": "PROJ-1002", "criteria_met": false}
+    ],
+    "release_readiness": {
+      "uat_pass_rate": 0.85,
+      "prod_deploy_success_rate": 0.92,
+      "blocked_stories": 12
+    },
+    "flow_metrics": {
+      "cycle_time_avg_days": 4.2,
+      "lead_time_avg_days": 6.5,
+      "throughput_per_sprint": 45
+    },
+    "ci_stability": {
+      "dev_success_rate": 0.95,
+      "uat_success_rate": 0.82,
+      "prod_success_rate": 0.90,
+      "rollback_events": 3
+    },
+    "risk_signals": {
+      "defect_reopen_rate": 0.12,
+      "uat_failure_spike": true,
+      "blocker_count": 5
+    }
+  },
+  "visualizations": [
+    {
+      "type": "bar_chart",
+      "title": "Epic Completion",
+      "data_source": "metrics.scope_completion"
+    },
+    {
+      "type": "table",
+      "title": "Acceptance Criteria Status",
+      "data_source": "metrics.acceptance_criteria"
+    },
+    {
+      "type": "gauge",
+      "title": "Release Readiness",
+      "data_source": "metrics.release_readiness.percent_complete"
+    },
+    {
+      "type": "heatmap",
+      "title": "Bottleneck Heatmap",
+      "data_source": "metrics.flow_metrics"
+    },
+    {
+      "type": "timeline",
+      "title": "Build Success/Failure Timeline",
+      "data_source": "metrics.ci_stability"
+    }
+  ],
+  "drilldowns": {
+    "epic_to_story": true,
+    "story_to_commit": true,
+    "commit_to_build": true,
+    "build_to_acceptance": true
+  },
+  "alerts": [
+    {
+      "severity": "high",
+      "message": "UAT failures increased by 20% this sprint"
+    },
+    {
+      "severity": "medium",
+      "message": "5 stories blocked by external API rate limits"
+    }
+  ]
+}
+
+How to use this schema
+- LLM prompt: Ask the model to return a JSON object in this schema for the given role and dataset.
+- React UI: Parse the JSON and render each visualization type using your charting library.
+- Drill‑downs: Use the boolean flags to enable navigation links (Epic → Story → Commit → Build → Acceptance).
+- Alerts: Show as banners or notifications in the dashboard.
+- Summary: Display as an AI‑generated narrative at the top of the dashboard.
+
+
+What should backend should expose to React UI for each role 
+
+1. Product Owner
+
+Generate a Product Owner dashboard in JSON format using the schema provided. 
+Include scope completion, acceptance criteria status, release readiness, blockers, and enriched summary. 
+Return visualizations as bar_chart, table, and gauge. 
+Use the normalized data model (epics, stories, acceptance logs, CICD builds).
+
+2. Scrum Master
+
+Generate a Scrum Master dashboard in JSON format using the schema provided. 
+Include flow metrics (cycle time, lead time, throughput), impediments, bottlenecks, and defect reopen events. 
+Return visualizations as cumulative flow diagram, scatter plot, heatmap, and timeline. 
+Use the normalized data model (status_history, defects, commits, CICD builds).
+
+3. Delivery Lead
+
+Generate a Delivery Lead dashboard in JSON format using the schema provided. 
+Include release-level risk, CI stability, environment-specific issues, and rollback events. 
+Return visualizations as timeline, environment stability dashboard, scorecard, and risk heatmap. 
+Use the normalized data model (CICD build records, release versions, defect logs).
+
+
+Please use following prompt as a reference for Backend AI Agent implementation. 
+
+You are an intelligent backend GenAI agent responsible for powering an Agile Digital Scrum Master platform.
+
+Your capabilities:
+- Use embedding models to vectorize normalized delivery data (epics, stories, commits, defects, CICD builds, acceptance logs).
+- Store and retrieve embeddings from a vector store.
+- Run a Retrieval-Augmented Generation (RAG) engine to answer queries with context from the vector store.
+- Use a chat LLM model to generate structured JSON responses for dashboards and conversational summaries.
+- Use an image search model to retrieve relevant visuals (e.g., charts, diagrams, team avatars).
+- Use a voice search/interaction model to process spoken queries and return spoken summaries.
+- Support live interaction: respond in real time to user queries from React UI.
+
+Your responsibilities:
+1. **Understand role context**: Product Owner, Scrum Master, Delivery Lead.
+2. **Retrieve relevant data**: Use embeddings + vector store + RAG to fetch epics, stories, commits, builds, defects, acceptance logs.
+3. **Generate enriched insights**:
+   - Product Owner: scope completion, acceptance criteria, release readiness, blockers.
+   - Scrum Master: flow metrics, impediments, bottlenecks, defect reopen events.
+   - Delivery Lead: release risk, CI stability, environment issues, rollback events.
+4. **Output structured JSON** following the agreed schema:
+   {
+     "role": "...",
+     "summary": "...",
+     "metrics": {...},
+     "visualizations": [...],
+     "drilldowns": {...},
+     "alerts": [...]
+   }
+5. **Enhance with multimodal outputs**:
+   - Provide image search queries for charts/diagrams.
+   - Provide voice-friendly summaries for spoken playback.
+   - Provide natural language narratives for UI display.
+6. **Support live queries**: Accept natural language questions (text or voice) and return enriched answers using RAG + embeddings.
+
+Constraints:
+- Always ground answers in retrieved normalized data.
+- Always return JSON in the schema for dashboards.
+- Always include both numeric metrics and narrative summaries.
+- For multimodal requests, include image search queries and voice summary text.
+- For drill-downs, ensure links Epic → Story → Commit → Build → Acceptance are preserved.
+
+Example user query: "Scrum Master dashboard for Sprint 12"
+Example agent output: JSON object with metrics, visualizations, alerts, plus image search queries for cumulative flow diagram and bottleneck heatmap, plus voice summary text.
+
+-------------------------------------------------------------------------------------------------------------------
+
+Clean code instructions to follow for backend and frontend development. 
+
+1. Cognitive complexity should be less for novice developer to understand. 
+2. Modular and split into small classes and functions. 
+3. Detailed logging with flow control, decision details and identifiable and easy to debug for novice new joiners.
