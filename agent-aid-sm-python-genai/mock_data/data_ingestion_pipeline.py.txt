@@ -1,0 +1,191 @@
+import os
+import json
+import psycopg2
+
+class DataIngestionService:
+    def __init__(self, db_config):
+        self.db_config = db_config
+
+    def get_connection(self):
+        return psycopg2.connect(**self.db_config)
+
+    def mock_llm_embed(self, obj: dict):
+        """
+        Simulate embedding generation from the entire JSON object.
+        Convert object to string and embed.
+        """
+        obj_str = json.dumps(obj)
+        print(f"[DEBUG] Generating embedding for object: {obj_str[:80]}...")
+        return [0.01] * 1536  # dummy vector
+
+    def insert_to_pg(self, table: str, columns: list, values: list):
+        placeholders = ", ".join(["%s"] * len(values))
+        col_names = ", ".join(columns)
+        sql = f"INSERT INTO {table} ({col_names}) VALUES ({placeholders})"
+        print(f"[INFO] Executing SQL: {sql}")
+        conn = self.get_connection()
+        cur = conn.cursor()
+        cur.execute(sql, values)
+        conn.commit()
+        cur.close()
+        conn.close()
+        print(f"[INFO] Inserted row into {table}")
+
+    # ---------- EPICS ----------
+    def restructure_epic(self, epic):
+        embedding = self.mock_llm_embed(epic)
+        values = [
+            epic["epicId"], epic["title"], epic["description"], epic["productOwner"],
+            epic["plannedStartDate"], epic["plannedEndDate"],
+            epic["actualStartDate"], epic["actualEndDate"],
+            epic["status"], epic.get("blockers", []), embedding
+        ]
+        return values
+
+    def prepare_epic_columns(self):
+        return ["epic_id","title","description","product_owner",
+                "planned_start","planned_end","actual_start","actual_end",
+                "status","blockers","embedding"]
+
+    def process_epic(self, epic):
+        values = self.restructure_epic(epic)
+        columns = self.prepare_epic_columns()
+        return ("epics", columns, values)
+
+    # ---------- DEFECTS ----------
+    def restructure_defect(self, defect):
+        embedding = self.mock_llm_embed(defect)
+        values = [
+            defect["jiraId"], defect["epicId"], defect["title"], defect["description"],
+            defect["assignee"], defect["createdAt"], defect["status"], embedding
+        ]
+        return values
+
+    def prepare_defect_columns(self):
+        return ["jira_id","epic_id","title","description",
+                "assignee","created_at","status","embedding"]
+
+    def process_defect(self, defect):
+        values = self.restructure_defect(defect)
+        columns = self.prepare_defect_columns()
+        return ("defects", columns, values)
+
+    # ---------- STORIES ----------
+    def restructure_story(self, story):
+        embedding = self.mock_llm_embed(story)
+        values = [
+            story["jiraId"], story["epicId"], story["title"], story["description"],
+            story.get("acceptanceCriteria", []), story.get("storyPoints", 0),
+            story.get("priority",""), story.get("assignee",""),
+            story.get("status",""), story.get("onPlan", True),
+            story.get("delayDays", 0), story.get("createdAt",""),
+            story.get("updatedAt",""), embedding
+        ]
+        return values
+
+    def prepare_story_columns(self):
+        return ["jira_id","epic_id","title","description","acceptance_criteria",
+                "story_points","priority","assignee","current_status",
+                "on_plan","delay_days","created_at","updated_at","embedding"]
+
+    def process_story(self, story):
+        values = self.restructure_story(story)
+        columns = self.prepare_story_columns()
+        return ("stories", columns, values)
+
+    # ---------- COMMITS ----------
+    def restructure_commit(self, commit):
+        embedding = self.mock_llm_embed(commit)
+        values = [
+            commit["commitId"], commit["jiraId"], commit["author"], commit["timestamp"],
+            commit["message"], commit.get("filesChanged",0),
+            commit.get("linesAdded",0), commit.get("linesDeleted",0),
+            commit.get("branch",""), commit.get("prId",""),
+            commit.get("prStatus",""), embedding
+        ]
+        return values
+
+    def prepare_commit_columns(self):
+        return ["commit_id","jira_id","author","timestamp","message",
+                "files_changed","lines_added","lines_deleted","branch",
+                "pr_id","pr_status","embedding"]
+
+    def process_commit(self, commit):
+        values = self.restructure_commit(commit)
+        columns = self.prepare_commit_columns()
+        return ("commits", columns, values)
+
+    # ---------- BUILDS ----------
+    def restructure_build(self, build):
+        embedding = self.mock_llm_embed(build)
+        values = [
+            build["buildId"], build["jiraId"], build["environment"],
+            build["pipelineStage"], build["status"],
+            build["startTime"], build["endTime"],
+            build["releaseVersion"], build.get("notes",""), embedding
+        ]
+        return values
+
+    def prepare_build_columns(self):
+        return ["build_id","jira_id","environment","pipeline_stage","status",
+                "start_time","end_time","release_version","notes","embedding"]
+
+    def process_build(self, build):
+        values = self.restructure_build(build)
+        columns = self.prepare_build_columns()
+        return ("builds", columns, values)
+
+    # ---------- STATUS HISTORIES ----------
+    def restructure_status_history(self, history):
+        embedding = self.mock_llm_embed(history)
+        values = [
+            history["jiraId"], history.get("chunkIndex",0),
+            json.dumps(history.get("transitions",[])), embedding
+        ]
+        return values
+
+    def prepare_status_history_columns(self):
+        return ["jira_id","chunk_index","transitions","embedding"]
+
+    def process_status_history(self, history):
+        values = self.restructure_status_history(history)
+        columns = self.prepare_status_history_columns()
+        return ("status_histories", columns, values)
+
+    # ---------- Dispatcher ----------
+    def process_json_data(self, data, filename):
+        print(f"[INFO] Processing file: {filename}")
+        results = []
+        if filename == "epics.json":
+            for obj in data:
+                results.append(self.process_epic(obj))
+        elif filename == "defects.json":
+            for obj in data:
+                results.append(self.process_defect(obj))
+        elif filename == "stories.json":
+            for obj in data:
+                results.append(self.process_story(obj))
+        elif filename == "commits.json":
+            for obj in data:
+                results.append(self.process_commit(obj))
+        elif filename == "cicd_builds.json":
+            for obj in data:
+                results.append(self.process_build(obj))
+        elif filename == "status_histories.json":
+            for obj in data:
+                results.append(self.process_status_history(obj))
+        else:
+            print(f"[WARN] Unknown file type: {filename}")
+        return results
+
+    def upload_files(self, dir_path: str):
+        for filename in os.listdir(dir_path):
+            if not filename.endswith(".json"):
+                continue
+            file_path = os.path.join(dir_path, filename)
+            print(f"[INFO] Loading JSON file: {file_path}")
+            with open(file_path, "r") as f:
+                data = json.load(f)
+            tuples = self.process_json_data(data, filename)
+            for table, columns, values in tuples:
+                self.insert_to_pg(table, columns, values)
