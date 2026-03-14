@@ -1,0 +1,146 @@
+
+Table Definitions
+
+1. Epics
+
+CREATE TABLE epics (
+    id SERIAL PRIMARY KEY,
+    epic_id VARCHAR(20),
+    title TEXT,
+    description TEXT,
+    product_owner TEXT,
+    planned_start TIMESTAMP,
+    planned_end TIMESTAMP,
+    actual_start TIMESTAMP,
+    actual_end TIMESTAMP,
+    status VARCHAR(20),
+    blockers TEXT[],
+    chunk TEXT,
+    embedding vector(1536)
+);
+
+-- Indexes
+CREATE UNIQUE INDEX idx_epics_epic_id ON epics(epic_id);
+CREATE INDEX idx_epics_status ON epics(status);
+CREATE INDEX idx_epics_owner ON epics(product_owner);
+CREATE INDEX idx_epics_chunk_gin ON epics USING gin(to_tsvector('english', chunk));
+CREATE INDEX idx_epics_embedding ON epics USING ivfflat (embedding vector_cosine_ops);
+
+2. Stories
+
+CREATE TABLE stories (
+    id SERIAL PRIMARY KEY,
+    jira_id VARCHAR(20),
+    epic_id VARCHAR(20) REFERENCES epics(epic_id),
+    title TEXT,
+    description TEXT,
+    acceptance_criteria TEXT[],
+    story_points INT,
+    priority VARCHAR(5),
+    assignee TEXT,
+    current_status VARCHAR(20),
+    on_plan BOOLEAN,
+    delay_days INT,
+    created_at TIMESTAMP,
+    updated_at TIMESTAMP,
+    chunk TEXT,
+    embedding vector(1536)
+);
+
+-- Indexes
+CREATE UNIQUE INDEX idx_stories_jira_id ON stories(jira_id);
+CREATE INDEX idx_stories_epic ON stories(epic_id);
+CREATE INDEX idx_stories_assignee ON stories(assignee);
+CREATE INDEX idx_stories_status ON stories(current_status);
+CREATE INDEX idx_stories_chunk_gin ON stories USING gin(to_tsvector('english', chunk));
+CREATE INDEX idx_stories_embedding ON stories USING ivfflat (embedding vector_cosine_ops);
+
+3. Commits
+
+CREATE TABLE commits (
+    id SERIAL PRIMARY KEY,
+    commit_id VARCHAR(40),
+    jira_id VARCHAR(20) REFERENCES stories(jira_id),
+    author TEXT,
+    timestamp TIMESTAMP,
+    message TEXT,
+    files_changed INT,
+    lines_added INT,
+    lines_deleted INT,
+    branch TEXT,
+    pr_id VARCHAR(40),
+    pr_status VARCHAR(20),
+    chunk TEXT,
+    embedding vector(1536)
+);
+
+-- Indexes
+CREATE UNIQUE INDEX idx_commits_commit_id ON commits(commit_id);
+CREATE INDEX idx_commits_jira ON commits(jira_id);
+CREATE INDEX idx_commits_author ON commits(author);
+CREATE INDEX idx_commits_chunk_gin ON commits USING gin(to_tsvector('english', chunk));
+CREATE INDEX idx_commits_embedding ON commits USING ivfflat (embedding vector_cosine_ops);
+
+4. CICD Builds
+
+CREATE TABLE builds (
+    id SERIAL PRIMARY KEY,
+    build_id VARCHAR(40),
+    jira_id VARCHAR(20) REFERENCES stories(jira_id),
+    environment VARCHAR(10),
+    pipeline_stage VARCHAR(20),
+    status VARCHAR(20),
+    start_time TIMESTAMP,
+    end_time TIMESTAMP,
+    release_version VARCHAR(50),
+    notes TEXT,
+    chunk TEXT,
+    embedding vector(1536)
+);
+
+-- Indexes
+CREATE UNIQUE INDEX idx_builds_build_id ON builds(build_id);
+CREATE INDEX idx_builds_jira ON builds(jira_id);
+CREATE INDEX idx_builds_env ON builds(environment);
+CREATE INDEX idx_builds_status ON builds(status);
+CREATE INDEX idx_builds_chunk_gin ON builds USING gin(to_tsvector('english', chunk));
+CREATE INDEX idx_builds_embedding ON builds USING ivfflat (embedding vector_cosine_ops);
+
+5. Defects
+
+CREATE TABLE defects (
+    id SERIAL PRIMARY KEY,
+    jira_id VARCHAR(20),
+    epic_id VARCHAR(20) REFERENCES epics(epic_id),
+    title TEXT,
+    description TEXT,
+    assignee TEXT,
+    created_at TIMESTAMP,
+    status VARCHAR(20),
+    chunk TEXT,
+    embedding vector(1536)
+);
+
+-- Indexes
+CREATE UNIQUE INDEX idx_defects_jira_id ON defects(jira_id);
+CREATE INDEX idx_defects_epic ON defects(epic_id);
+CREATE INDEX idx_defects_assignee ON defects(assignee);
+CREATE INDEX idx_defects_status ON defects(status);
+CREATE INDEX idx_defects_chunk_gin ON defects USING gin(to_tsvector('english', chunk));
+CREATE INDEX idx_defects_embedding ON defects USING ivfflat (embedding vector_cosine_ops);
+
+6. Status Histories
+
+CREATE TABLE status_histories (
+    id SERIAL PRIMARY KEY,
+    jira_id VARCHAR(20) REFERENCES stories(jira_id),
+    chunk_index INT,
+    transitions JSONB,
+    chunk TEXT,
+    embedding vector(1536)
+);
+
+-- Indexes
+CREATE INDEX idx_status_histories_jira ON status_histories(jira_id);
+CREATE INDEX idx_status_histories_chunk_gin ON status_histories USING gin(to_tsvector('english', chunk));
+CREATE INDEX idx_status_histories_embedding ON status_histories USING ivfflat (embedding vector_cosine_ops);
