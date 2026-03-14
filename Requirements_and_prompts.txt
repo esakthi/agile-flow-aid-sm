@@ -1,3 +1,5 @@
+
+
 - Product Owner needs to know scope completion, acceptance criteria status, and release readiness. The detailed model shows which stories are merged, which are in UAT, and which are blocked by external issues.
 - Scrum Master needs flow metrics and impediment signals. status_history and defect reopen events enable cycle time, blocked time, and bottleneck detection.
 - Delivery Lead needs release-level risk and CI stability. Build records with environment and failure reasons let them decide go/no‑go and plan rollbacks.
@@ -6,6 +8,8 @@
 a. Build Frontend Dashboards using React UI (backend is python with google gen ai adk (agent development kit)
 
 1.  Product Owner Dashboard Prompt
+
+"""Objective: Product Owner needs to know scope completion, acceptance criteria status, and release readiness. The detailed model shows which stories are merged, which are in UAT, and which are blocked by external issues."""
 
 You are generating a Product Owner dashboard using normalized agile delivery data.
 Data sources: Epics, Stories, Acceptance Criteria, Status History, CICD Deployments, Product Owner Acceptance logs.
@@ -27,6 +31,8 @@ Enable drill‑down: Epic → Story → Commits → CICD builds → Acceptance.
 
 2. Scrum Master Dashboard Prompt
 
+"""Objective: Scrum Master needs flow metrics and impediment signals. status_history and defect reopen events enable cycle time, blocked time, and bottleneck detection."""
+
 You are generating a Scrum Master dashboard using normalized agile delivery data.
 Data sources: Status History, Defects, Commits, CICD Deployments.
 Objectives:
@@ -45,6 +51,8 @@ Visualizations:
 Enable drill‑down: Story → Status transitions → Commits → Defects → QA outcomes.
 
 3. Delivery Lead Dashboard Prompt
+
+"""Objective: Delivery Lead needs release-level risk and CI stability. Build records with environment and failure reasons let them decide go/no‑go and plan rollbacks."""
 
 You are generating a Delivery Lead dashboard using normalized agile delivery data.
 Data sources: CICD Build Records, Release Versions, Environment Deployments, Defect Logs.

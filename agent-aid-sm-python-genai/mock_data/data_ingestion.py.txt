@@ -1,0 +1,98 @@
+import os
+import json
+import psycopg2
+
+class DataIngestionService:
+    def __init__(self, db_config):
+        # db_config is a dict with keys: host, port, dbname, user, password
+        self.db_config = db_config
+
+    def get_connection(self):
+        return psycopg2.connect(**self.db_config)
+
+    def mock_llm_embed(self, text: str):
+        """
+        Simulate embedding generation.
+        In real implementation, call your embedding model here.
+        For now, return a fixed-size vector (list of floats).
+        """
+        # Example: return 1536-dim vector of dummy values
+        return [0.01] * 1536
+
+    def insert_to_pg(self, table: str, columns: list, values: list):
+        """
+        Insert data into PostgreSQL table.
+        table: table name
+        columns: list of column names
+        values: list of values matching columns
+        """
+        placeholders = ", ".join(["%s"] * len(values))
+        col_names = ", ".join(columns)
+        sql = f"INSERT INTO {table} ({col_names}) VALUES ({placeholders})"
+        conn = self.get_connection()
+        cur = conn.cursor()
+        cur.execute(sql, values)
+        conn.commit()
+        cur.close()
+        conn.close()
+
+    def process_epics(self, file_path):
+        with open(file_path, "r") as f:
+            data = json.load(f)
+        for epic in data:
+            embedding = self.mock_llm_embed(epic.get("description", ""))
+            values = [
+                epic["epicId"],
+                epic["title"],
+                epic["description"],
+                epic["productOwner"],
+                epic["plannedStartDate"],
+                epic["plannedEndDate"],
+                epic["actualStartDate"],
+                epic["actualEndDate"],
+                epic["status"],
+                epic.get("blockers", []),
+                embedding
+            ]
+            columns = ["epic_id","title","description","product_owner",
+                       "planned_start","planned_end","actual_start","actual_end",
+                       "status","blockers","embedding"]
+            self.insert_to_pg("epics", columns, values)
+
+    def process_defects(self, file_path):
+        with open(file_path, "r") as f:
+            data = json.load(f)
+        for defect in data:
+            embedding = self.mock_llm_embed(defect.get("description", ""))
+            values = [
+                defect["jiraId"],
+                defect["epicId"],
+                defect["title"],
+                defect["description"],
+                defect["assignee"],
+                defect["createdAt"],
+                defect["status"],
+                embedding
+            ]
+            columns = ["jira_id","epic_id","title","description",
+                       "assignee","created_at","status","embedding"]
+            self.insert_to_pg("defects", columns, values)
+
+    # Similar methods can be written for stories, commits, builds, status_histories
+
+    def upload_files(self, dir_path: str):
+        """
+        Loop through files in directory and route to appropriate processor.
+        """
+        for filename in os.listdir(dir_path):
+            file_path = os.path.join(dir_path, filename)
+            if not filename.endswith(".json"):
+                continue
+            if filename == "epics.json":
+                self.process_epics(file_path)
+            elif filename == "defects.json":
+                self.process_defects(file_path)
+            # elif filename == "stories.json": self.process_stories(file_path)
+            # elif filename == "commits.json": self.process_commits(file_path)
+            # elif filename == "cicd_builds.json": self.process_builds(file_path)
+            # elif filename == "status_histories.json": self.process_status_histories(file_path)
